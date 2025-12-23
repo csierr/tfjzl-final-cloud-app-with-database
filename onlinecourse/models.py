@@ -85,6 +85,12 @@ class Question(models.Model):
         else:
             return False
 
+# Choice model
+class Choice(models.Model):
+    question   = models.ForeignKey(Question, on_delete=models.CASCADE)
+    content    = models.CharField(max_length=200)
+    is_correct = models.BooleanField(default=False)
+
 # Lesson model
 class Lesson(models.Model):
     title = models.CharField(max_length=200, default="title")
